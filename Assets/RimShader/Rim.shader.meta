@@ -1,0 +1,7 @@
+fileFormatVersion: 2
+guid: 6b69226c22bf545a2baf68fc60f7066d
+ShaderImporter:
+  defaultTextures:
+  - _ShieldTexture: {fileID: 2800000, guid: b68da1e79501b2a4091e59de33bb8952, type: 3}
+  - _ShieldTex2: {fileID: 2800000, guid: b68da1e79501b2a4091e59de33bb8952, type: 3}
+  userData: 

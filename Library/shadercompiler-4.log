@@ -1,0 +1,31 @@
+Base path: D:/UnityEditor/Editor/Data
+Pipe name: \\.\pipe\UnityShaderCompiler-4-13432
+Cmd: getPlatforms
+Cmd: compileSnippet
+  api=1 type=0 insize=6159 outsize=260 kw=DIRECTIONAL LIGHTMAP_ON DIRLIGHTMAP_OFF ok=1
+Cmd: compileSnippet
+  api=1 type=0 insize=6159 outsize=260 kw=DIRECTIONAL LIGHTMAP_ON DIRLIGHTMAP_ON ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=6159 outsize=4443 kw=DIRECTIONAL LIGHTMAP_OFF DIRLIGHTMAP_OFF VERTEXLIGHT_ON ok=1
+Cmd: compileSnippet
+  api=0 type=1 insize=6159 outsize=798 kw=DIRECTIONAL LIGHTMAP_ON DIRLIGHTMAP_OFF ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=6159 outsize=1778 kw=DIRECTIONAL LIGHTMAP_ON DIRLIGHTMAP_OFF ok=1
+Cmd: compileSnippet
+  api=1 type=0 insize=4057 outsize=483 kw=POINT ok=1
+Cmd: compileSnippet
+  api=4 type=0 insize=4057 outsize=1965 kw=DIRECTIONAL ok=1
+Cmd: compileSnippet
+  api=0 type=0 insize=4057 outsize=853 kw=POINT_COOKIE ok=1
+Cmd: compileSnippet
+  api=1 type=1 insize=4057 outsize=877 kw=POINT ok=1
+Cmd: compileSnippet
+  api=1 type=1 insize=4057 outsize=1033 kw=SPOT ok=1
+Cmd: compileSnippet
+  api=1 type=1 insize=4057 outsize=921 kw=POINT_COOKIE ok=1
+Cmd: compileSnippet
+  api=4 type=1 insize=4057 outsize=2022 kw=DIRECTIONAL_COOKIE ok=1
+Unhandled exception: Readfile from pipe failed. GLE=The pipe has been ended.
+
+
+Quitting shader compiler process
