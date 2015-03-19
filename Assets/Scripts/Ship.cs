@@ -78,7 +78,7 @@ public class Ship : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{		
-		rigidbody2D.angularDrag = ANGULAR_DRAG;
+		GetComponent<Rigidbody2D>().angularDrag = ANGULAR_DRAG;
 	}
 	
 	// Update is called once per frame
@@ -114,24 +114,24 @@ public class Ship : MonoBehaviour {
 			
 			if (Mathf.Abs (transform.rotation.eulerAngles.z - rotation.eulerAngles.z) < 2)
 			{
-				rigidbody2D.angularVelocity = 0;
+				GetComponent<Rigidbody2D>().angularVelocity = 0;
 			}
 			else if (transform.rotation.eulerAngles.z < rotation.eulerAngles.z)
 			{
 				if (Mathf.Abs (transform.rotation.eulerAngles.z - rotation.eulerAngles.z) < 180)
 				{
-					rigidbody2D.angularVelocity += ROTATION;
-					if (rigidbody2D.angularVelocity > MAX_ROT_SPEED)
+					GetComponent<Rigidbody2D>().angularVelocity += ROTATION;
+					if (GetComponent<Rigidbody2D>().angularVelocity > MAX_ROT_SPEED)
 					{
-						rigidbody2D.angularVelocity = MAX_ROT_SPEED;
+						GetComponent<Rigidbody2D>().angularVelocity = MAX_ROT_SPEED;
 					}
 				}
 				else
 				{
-					rigidbody2D.angularVelocity -= ROTATION;
-					if (rigidbody2D.angularVelocity < -MAX_ROT_SPEED)
+					GetComponent<Rigidbody2D>().angularVelocity -= ROTATION;
+					if (GetComponent<Rigidbody2D>().angularVelocity < -MAX_ROT_SPEED)
 					{
-						rigidbody2D.angularVelocity = -MAX_ROT_SPEED;
+						GetComponent<Rigidbody2D>().angularVelocity = -MAX_ROT_SPEED;
 					}
 				}					
 			}
@@ -139,18 +139,18 @@ public class Ship : MonoBehaviour {
 			{	
 				if (Mathf.Abs (transform.rotation.eulerAngles.z - rotation.eulerAngles.z) < 180)
 				{
-					rigidbody2D.angularVelocity -= ROTATION;
-					if (rigidbody2D.angularVelocity < -MAX_ROT_SPEED)
+					GetComponent<Rigidbody2D>().angularVelocity -= ROTATION;
+					if (GetComponent<Rigidbody2D>().angularVelocity < -MAX_ROT_SPEED)
 					{
-						rigidbody2D.angularVelocity = -MAX_ROT_SPEED;
+						GetComponent<Rigidbody2D>().angularVelocity = -MAX_ROT_SPEED;
 					}
 				}
 				else
 				{
-					rigidbody2D.angularVelocity += ROTATION;
-					if (rigidbody2D.angularVelocity > MAX_ROT_SPEED)
+					GetComponent<Rigidbody2D>().angularVelocity += ROTATION;
+					if (GetComponent<Rigidbody2D>().angularVelocity > MAX_ROT_SPEED)
 					{
-						rigidbody2D.angularVelocity = MAX_ROT_SPEED;
+						GetComponent<Rigidbody2D>().angularVelocity = MAX_ROT_SPEED;
 					}
 				}
 			}
@@ -167,19 +167,19 @@ public class Ship : MonoBehaviour {
 		
 		if (Input.GetKey (KeyCode.W))
 		{
-			rigidbody2D.AddForce (transform.up * ACCELERATION);
-			if (rigidbody2D.velocity.magnitude > MAX_VELOCITY)
+			GetComponent<Rigidbody2D>().AddForce (transform.up * ACCELERATION);
+			if (GetComponent<Rigidbody2D>().velocity.magnitude > MAX_VELOCITY)
 			{
-				rigidbody2D.velocity = Vector2.ClampMagnitude (rigidbody2D.velocity, MAX_VELOCITY);
+				GetComponent<Rigidbody2D>().velocity = Vector2.ClampMagnitude (GetComponent<Rigidbody2D>().velocity, MAX_VELOCITY);
 			}
 			bEnginesFiring = true;
 		}
 		else if (Input.GetKey (KeyCode.S))
 		{			
-			rigidbody2D.AddForce (transform.up * -ACCELERATION);
-			if (rigidbody2D.velocity.magnitude > MAX_VELOCITY)
+			GetComponent<Rigidbody2D>().AddForce (transform.up * -ACCELERATION);
+			if (GetComponent<Rigidbody2D>().velocity.magnitude > MAX_VELOCITY)
 			{
-				rigidbody2D.velocity = Vector2.ClampMagnitude (rigidbody2D.velocity, MAX_VELOCITY);
+				GetComponent<Rigidbody2D>().velocity = Vector2.ClampMagnitude (GetComponent<Rigidbody2D>().velocity, MAX_VELOCITY);
 			}
 		}
 		
@@ -187,10 +187,10 @@ public class Ship : MonoBehaviour {
 		{
 			if (!mbStrafing)
 			{
-				rigidbody2D.angularVelocity += ROTATION;
-				if (rigidbody2D.angularVelocity > MAX_ROT_SPEED)
+				GetComponent<Rigidbody2D>().angularVelocity += ROTATION;
+				if (GetComponent<Rigidbody2D>().angularVelocity > MAX_ROT_SPEED)
 				{
-					rigidbody2D.angularVelocity = MAX_ROT_SPEED;
+					GetComponent<Rigidbody2D>().angularVelocity = MAX_ROT_SPEED;
 				}
 			}
 			else
@@ -209,10 +209,10 @@ public class Ship : MonoBehaviour {
 		{
 			if (!mbStrafing)
 			{
-				rigidbody2D.angularVelocity -= ROTATION;
-				if (rigidbody2D.angularVelocity < -MAX_ROT_SPEED)
+				GetComponent<Rigidbody2D>().angularVelocity -= ROTATION;
+				if (GetComponent<Rigidbody2D>().angularVelocity < -MAX_ROT_SPEED)
 				{
-					rigidbody2D.angularVelocity = -MAX_ROT_SPEED;
+					GetComponent<Rigidbody2D>().angularVelocity = -MAX_ROT_SPEED;
 				}
 				mbStrafing = false;
 			}
@@ -239,30 +239,30 @@ public class Ship : MonoBehaviour {
 			{
 				rotation = Quaternion.Euler (0,0,90);
 				Vector3 strafeVector = rotation * transform.up;
-				rigidbody2D.AddForce (strafeVector * ACCELERATION / 2);
-				if (rigidbody2D.velocity.magnitude > MAX_VELOCITY)
+				GetComponent<Rigidbody2D>().AddForce (strafeVector * ACCELERATION / 2);
+				if (GetComponent<Rigidbody2D>().velocity.magnitude > MAX_VELOCITY)
 				{
-					rigidbody2D.velocity = Vector3.ClampMagnitude (rigidbody2D.velocity, MAX_VELOCITY);
+					GetComponent<Rigidbody2D>().velocity = Vector3.ClampMagnitude (GetComponent<Rigidbody2D>().velocity, MAX_VELOCITY);
 				}
 			}
 			else if (mStrafingDirection == StrafeDirection.Right)
 			{
 				rotation = Quaternion.Euler (0,0,-90);
 				Vector3 strafeVector = rotation * transform.up;
-				rigidbody2D.AddForce (strafeVector * ACCELERATION / 2);
-				if (rigidbody2D.velocity.magnitude > MAX_VELOCITY)
+				GetComponent<Rigidbody2D>().AddForce (strafeVector * ACCELERATION / 2);
+				if (GetComponent<Rigidbody2D>().velocity.magnitude > MAX_VELOCITY)
 				{
-					rigidbody2D.velocity = Vector3.ClampMagnitude (rigidbody2D.velocity, MAX_VELOCITY);
+					GetComponent<Rigidbody2D>().velocity = Vector3.ClampMagnitude (GetComponent<Rigidbody2D>().velocity, MAX_VELOCITY);
 				}
 			}
 		}
 		
 		if (Input.GetKey (KeyCode.C))
 		{	
-			rigidbody2D.velocity = Vector3.ClampMagnitude (rigidbody2D.velocity, rigidbody2D.velocity.magnitude - (MAX_VELOCITY * Time.deltaTime));
-			if (rigidbody2D.velocity.magnitude / MAX_VELOCITY < .05)
+			GetComponent<Rigidbody2D>().velocity = Vector3.ClampMagnitude (GetComponent<Rigidbody2D>().velocity, GetComponent<Rigidbody2D>().velocity.magnitude - (MAX_VELOCITY * Time.deltaTime));
+			if (GetComponent<Rigidbody2D>().velocity.magnitude / MAX_VELOCITY < .05)
 			{
-				rigidbody2D.velocity = Vector3.zero;
+				GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 			}
 		}
 		
@@ -277,7 +277,7 @@ public class Ship : MonoBehaviour {
 				}
 				else
 				{
-					script.Fire (rigidbody2D.velocity);
+					script.Fire (GetComponent<Rigidbody2D>().velocity);
 				}
 			}
 		}
@@ -306,11 +306,11 @@ public class Ship : MonoBehaviour {
 		float tx, ty, tvx, tvy, a, b, c, t1, t2, t;
 		tx = target.gameObject.transform.position.x - transform.position.x;
 		ty = target.gameObject.transform.position.y - transform.position.y;
-		tvx = target.gameObject.rigidbody2D.velocity.x - gameObject.rigidbody2D.velocity.x;
-		tvy = target.gameObject.rigidbody2D.velocity.y - gameObject.rigidbody2D.velocity.y;
+		tvx = target.gameObject.GetComponent<Rigidbody2D>().velocity.x - gameObject.GetComponent<Rigidbody2D>().velocity.x;
+		tvy = target.gameObject.GetComponent<Rigidbody2D>().velocity.y - gameObject.GetComponent<Rigidbody2D>().velocity.y;
 		
 		// get quadratic equation components:
-		a = tvx * tvx + tvy * tvy - (bulletSpeed + rigidbody2D.velocity.x) * (bulletSpeed + rigidbody2D.velocity.y);
+		a = tvx * tvx + tvy * tvy - (bulletSpeed + GetComponent<Rigidbody2D>().velocity.x) * (bulletSpeed + GetComponent<Rigidbody2D>().velocity.y);
 		b = 2 * (tvx * tx + tvy * ty);
 		c = tx * tx + ty * ty;
 		

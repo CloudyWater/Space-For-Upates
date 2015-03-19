@@ -102,10 +102,10 @@ public class Minion : AIControlledShip
 		
 		if (!mTargetLocation.Equals (Vector3.zero) && Vector3.Distance (mTargetLocation, transform.position) > mTurretLocations[0].GetTurret ().GetBulletRange ())
 		{
-			rigidbody2D.AddForce (transform.up * ACCELERATION);
-			if (rigidbody2D.velocity.magnitude > MAX_VELOCITY)
+			GetComponent<Rigidbody2D>().AddForce (transform.up * ACCELERATION);
+			if (GetComponent<Rigidbody2D>().velocity.magnitude > MAX_VELOCITY)
 			{
-				rigidbody2D.velocity = Vector2.ClampMagnitude (rigidbody2D.velocity, MAX_VELOCITY);
+				GetComponent<Rigidbody2D>().velocity = Vector2.ClampMagnitude (GetComponent<Rigidbody2D>().velocity, MAX_VELOCITY);
 			}
 			bEnginesFiring = true;
 			mbStrafing = false;
@@ -127,20 +127,20 @@ public class Minion : AIControlledShip
 			{
 				rotation = Quaternion.Euler (0,0,90);
 				Vector3 strafeVector = rotation * transform.up;
-				rigidbody2D.AddForce (strafeVector * ACCELERATION / 2);
-				if (rigidbody2D.velocity.magnitude > MAX_VELOCITY)
+				GetComponent<Rigidbody2D>().AddForce (strafeVector * ACCELERATION / 2);
+				if (GetComponent<Rigidbody2D>().velocity.magnitude > MAX_VELOCITY)
 				{
-					rigidbody2D.velocity = Vector3.ClampMagnitude (rigidbody2D.velocity, MAX_VELOCITY);
+					GetComponent<Rigidbody2D>().velocity = Vector3.ClampMagnitude (GetComponent<Rigidbody2D>().velocity, MAX_VELOCITY);
 				}
 			}
 			else if (mStrafingDirection == StrafeDirection.Right)
 			{
 				rotation = Quaternion.Euler (0,0,-90);
 				Vector3 strafeVector = rotation * transform.up;
-				rigidbody2D.AddForce (strafeVector * ACCELERATION / 2);
-				if (rigidbody2D.velocity.magnitude > MAX_VELOCITY)
+				GetComponent<Rigidbody2D>().AddForce (strafeVector * ACCELERATION / 2);
+				if (GetComponent<Rigidbody2D>().velocity.magnitude > MAX_VELOCITY)
 				{
-					rigidbody2D.velocity = Vector3.ClampMagnitude (rigidbody2D.velocity, MAX_VELOCITY);
+					GetComponent<Rigidbody2D>().velocity = Vector3.ClampMagnitude (GetComponent<Rigidbody2D>().velocity, MAX_VELOCITY);
 				}
 			}
 			
@@ -151,7 +151,7 @@ public class Minion : AIControlledShip
 			Turret tScript = turret.GetTurret ();
 			if (!mTargetLocation.Equals (Vector3.zero) && Vector3.Distance (mTargetLocation, transform.position) < tScript.GetBulletRange () && mTargetedShip != null)
 			{
-				tScript.Fire (rigidbody2D.velocity);
+				tScript.Fire (GetComponent<Rigidbody2D>().velocity);
 			}
 		}
 		

@@ -55,7 +55,7 @@ public class Projectile : MonoBehaviour {
 		transform.position = position;
 		
 		transform.Rotate (Vector3.forward, mFiringAngle);
-		rigidbody2D.velocity =  (Vector2)(transform.up * mProjectileSpeed) + shipVelocity;
+		GetComponent<Rigidbody2D>().velocity =  (Vector2)(transform.up * mProjectileSpeed) + shipVelocity;
 		
 		mTeam = team;
 	}

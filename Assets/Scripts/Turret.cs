@@ -142,7 +142,7 @@ public class Turret : MonoBehaviour {
 				mbIsOverheating = true;
 			}
 			
-			audio.PlayOneShot (mFiringSound);
+			GetComponent<AudioSource>().PlayOneShot (mFiringSound);
 		}
 	}
 	

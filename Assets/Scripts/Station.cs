@@ -35,7 +35,7 @@ public class Station : AIControlledShip {
 //				Vector3 targetPosition = GetAimingPoint (target, turretScript.GetBulletSpeed ());
 //				Quaternion newRotation = Quaternion.FromToRotation (Vector3.up, targetPosition - turret.transform.position);
 //				turret.transform.rotation = newRotation;
-				turretScript.Fire (rigidbody2D.velocity);	
+				turretScript.Fire (GetComponent<Rigidbody2D>().velocity);	
 			}
 			else
 			{	
@@ -72,7 +72,7 @@ public class Station : AIControlledShip {
 //					Vector3 targetPosition = GetAimingPoint (target, turretScript.GetBulletSpeed ());
 //					Quaternion newRotation = Quaternion.FromToRotation (Vector3.up, turretScript.GetTarget ().transform.position - turret.transform.position);
 //					turret.transform.rotation = newRotation;
-					turretScript.Fire (rigidbody2D.velocity);
+					turretScript.Fire (GetComponent<Rigidbody2D>().velocity);
 				}
 			}
 		}

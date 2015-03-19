@@ -31,8 +31,8 @@ public class AltShield : MonoBehaviour
 	void Start ()
 	{
 		buffer = new ComputeBuffer (m_shieldHitLimit, sizeof(float) * 4, ComputeBufferType.Default);
-		renderer.material.SetColor("_Color",m_shieldColor);
-		renderer.sortingLayerName = "Shields";
+		GetComponent<Renderer>().material.SetColor("_Color",m_shieldColor);
+		GetComponent<Renderer>().sortingLayerName = "Shields";
 	}
 	
 	void OnTriggerEnter2D(Collider2D collision)
@@ -123,7 +123,7 @@ public class AltShield : MonoBehaviour
 			} 
 			
 			buffer.SetData(data);
-			renderer.material.SetBuffer("buffer",buffer);
+			GetComponent<Renderer>().material.SetBuffer("buffer",buffer);
 			m_time += (Time.deltaTime); 
 			
 			if(m_time > 1.0f)
@@ -131,9 +131,9 @@ public class AltShield : MonoBehaviour
 				m_time = 0;
 			}
 			
-			renderer.material.SetFloat("_Offset", m_time);
-			renderer.material.SetFloat("_RadialFactor",m_time);
-			renderer.material.SetInt("_hitCount",m_shieldHits.Count);
+			GetComponent<Renderer>().material.SetFloat("_Offset", m_time);
+			GetComponent<Renderer>().material.SetFloat("_RadialFactor",m_time);
+			GetComponent<Renderer>().material.SetInt("_hitCount",m_shieldHits.Count);
 		}
 		
 		transform.localPosition = new Vector3 (0,0,0);

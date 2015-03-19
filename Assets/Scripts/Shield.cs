@@ -8,7 +8,7 @@ public class Shield : MonoBehaviour
 	
 	public void Start ()
 	{
-		renderer.sortingLayerName = "Shields";
+		GetComponent<Renderer>().sortingLayerName = "Shields";
 	}
 	
 	public void Update ()
@@ -16,12 +16,12 @@ public class Shield : MonoBehaviour
 		if(EffectTime>0){
 			if(EffectTime < 450 && EffectTime > 400)
 			{
-				renderer.sharedMaterial.SetVector("_ShieldColor", new Vector4(0.7f, 1f, 1f, 0f) );
+				GetComponent<Renderer>().sharedMaterial.SetVector("_ShieldColor", new Vector4(0.7f, 1f, 1f, 0f) );
 			}        
 			
 			EffectTime-=Time.deltaTime * 1000;
 			
-			renderer.material.SetFloat("_EffectTime", EffectTime);
+			GetComponent<Renderer>().material.SetFloat("_EffectTime", EffectTime);
 		}
 		transform.localPosition = new Vector3 (0,0,0);
 	}
@@ -33,9 +33,9 @@ public class Shield : MonoBehaviour
 			Projectile bullet = collider.gameObject.GetComponent <Projectile> ();
 			if (bullet.mTeam != mConnectedShip.mTeam)
 			{
-				renderer.material.SetVector("_ShieldColor", new Vector4(0.7f, 1f, 1f, 0.05f));
+				GetComponent<Renderer>().material.SetVector("_ShieldColor", new Vector4(0.7f, 1f, 1f, 0.05f));
 
-				renderer.material.SetVector("_Position", transform.InverseTransformPoint (collider.gameObject.transform.position));
+				GetComponent<Renderer>().material.SetVector("_Position", transform.InverseTransformPoint (collider.gameObject.transform.position));
 				
 				EffectTime=500;
 				

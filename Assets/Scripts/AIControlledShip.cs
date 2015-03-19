@@ -72,7 +72,7 @@ public class AIControlledShip : Ship {
 			script.SetTarget (mCurrentTarget.gameObject);
 			if (script.IsTargetInRange ())
 			{
-				script.Fire (rigidbody2D.velocity);
+				script.Fire (GetComponent<Rigidbody2D>().velocity);
 			}
 		}
 		
