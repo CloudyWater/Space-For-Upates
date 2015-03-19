@@ -62,9 +62,6 @@
  <Reference Include="UnityEditor.UI">
  <HintPath>D:/UnityEditor/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/Editor/UnityEditor.UI.dll</HintPath>
  </Reference>
- <Reference Include="iBoxDB">
- <HintPath>C:/Users/Thomas/Documents/SFU/Assets/Plugins/iBoxDB.dll</HintPath>
- </Reference>
  <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
  <HintPath>C:/Users/Thomas/Documents/SFU/Assets/UnityVS/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
  </Reference>

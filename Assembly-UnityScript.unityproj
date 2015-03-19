@@ -59,9 +59,6 @@
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/UnityEditor/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>
- <Reference Include="iBoxDB">
- <HintPath>C:/Users/Thomas/Documents/SFU/Assets/Plugins/iBoxDB.dll</HintPath>
- </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
